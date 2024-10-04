@@ -25,6 +25,11 @@
     <p id="result">
     </p>
 
+    <div>
+        <h2>My Desserts</h2>
+        <img id="dessertsImages" src="Donut.jpeg" width="200" height="200" onclick="nextImage()">
+    </div>
+
     <script>
 
         let attempts = 0;
@@ -41,9 +46,27 @@
             } else {
                 alert("You got it!");
             }
-
             document.getElementById('result').innerHTML = `Attempts: ${attempts}, Wrong guesses: ${wrong}`;
         }
+        let showing = 1;
+        function nextImage() {
+            const img = document.getElementById('dessertsImages');
+            switch (showing) {
+                case 1:
+                    img.src = 'Ice Cream.jpg';
+                    showing = 2;
+                    break;
+                case 2:
+                    img.src = 'Italian Tiramisu.jpg';
+                    showing = 3;
+                    break;
+                case 3:
+                    img.src = 'Donut.jpeg';
+                    showing = 1;
+                    break;
+            }
+        }
+
     </script>
 </body>
 
