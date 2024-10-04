@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Guess the color by Sathyanarayana Mallipudi </title>
+</head>
+
+<body>
+
+    <h1>Guess the color - Sathyanarayana Mallipudi</h1>
+
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="secretColor">Guess the color: </label>
+        <input type="password" id="secretColor" value="Red"><br><br>
+
+        <label for="colorGuess">Enter a guess: </label>
+        <input type="text" id="colorGuess"><br><br>
+
+        <input type="button" onclick="processColor()" value="Check the color">
+    </form>
+
+
+    <p id="result">
+    </p>
+
+    <script>
+
+        let attempts = 0;
+        let wrong = 0;
+
+        function processColor() {
+            const secretColor = document.getElementById('secretColor').value.toLowerCase();
+            const colorGuess = document.getElementById('colorGuess').value.toLowerCase();
+
+            attempts++;
+            if (secretColor !== colorGuess) {
+                wrong++;
+                alert("That was not it");
+            } else {
+                alert("You got it!");
+            }
+
+            document.getElementById('result').innerHTML = `Attempts: ${attempts}, Wrong guesses: ${wrong}`;
+        }
+    </script>
+</body>
+
+</html>
