@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title> Sathyanarayana's Lunch page </title>
+
+<body>
+
+    <h2>Sathyanarayana orders a lunch</h2>
+
+    <form>
+        <label><input type="checkbox" id="drink"> Drink</label><br>
+        <label><input type="checkbox" id="side"> Side</label><br>
+        <label><input type="checkbox" id="in"> Eat in</label><br>
+        <button type="button" onclick="startLunch()">Start a lunch order</button>
+    </form>
+
+    <p id="lunchResult"></p>
+
+    <script>
+        let my_lunch = {};
+
+        function startLunch() {
+            my_lunch = {};
+            my_lunch.drink = document.getElementById('drink').checked;
+            my_lunch.side = document.getElementById('side').checked;
+            my_lunch.in = document.getElementById('in').checked;
+
+            document.getElementById('lunchResult').innerHTML = JSON.stringify(my_lunch);
+        }
+    </script>
+
+</body>
+
+</html>
