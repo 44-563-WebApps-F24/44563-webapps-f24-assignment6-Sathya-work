@@ -15,16 +15,32 @@
 
     <p id="lunchResult"></p>
 
+    <form>
+        <label for="prop">Enter property:</label>
+        <input type="text" id="prop" value="entree"><br>
+
+        <label for="value">Set it to:</label>
+        <input type="text" id="value"><br>
+
+        <input type="button" onclick="updateLunch()" value="Update the lunch">
+    </form>
+
     <script>
-        let my_lunch = {};
+        var my_lunch = {};
 
         function startLunch() {
             my_lunch = {};
-            my_lunch.drink = document.getElementById('drink').checked;
-            my_lunch.side = document.getElementById('side').checked;
-            my_lunch.in = document.getElementById('in').checked;
+            my_lunch.drink = document.getElementById("drink").checked;
+            my_lunch.side = document.getElementById("side").checked;
+            my_lunch.in = document.getElementById("in").checked;
+            document.getElementById("lunchResult").innerHTML = JSON.stringify(my_lunch);
+        }
 
-            document.getElementById('lunchResult').innerHTML = JSON.stringify(my_lunch);
+        function updateLunch() {
+            let prop = document.getElementById("prop").value;
+            let value = document.getElementById("value").value;
+            my_lunch[prop] = value;
+            document.getElementById("lunchResult").innerHTML = JSON.stringify(my_lunch);
         }
     </script>
 
